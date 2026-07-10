@@ -1,0 +1,274 @@
+/* ============================================================
+   ELMS Gamification Design System
+   ============================================================ */
+
+/* ---- XP Badge ---- */
+.xp-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+    color: #fff;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 20px;
+    letter-spacing: 0.5px;
+    box-shadow: 0 2px 6px rgba(245,158,11,0.4);
+    white-space: nowrap;
+}
+.xp-badge i { font-size: 0.7rem; }
+
+/* ---- Completion Badge ---- */
+.completion-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: linear-gradient(135deg, #10b981, #059669);
+    color: #fff;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 3px 9px;
+    border-radius: 20px;
+    box-shadow: 0 2px 8px rgba(16,185,129,0.45);
+    animation: pulse-glow 2s ease-in-out infinite;
+}
+@keyframes pulse-glow {
+    0%, 100% { box-shadow: 0 2px 8px rgba(16,185,129,0.45); }
+    50%       { box-shadow: 0 2px 16px rgba(16,185,129,0.75); }
+}
+
+/* ---- Star Rating ---- */
+.star-rating {
+    display: flex;
+    gap: 6px;
+    justify-content: center;
+    margin: 1rem 0;
+}
+.star-rating .star {
+    font-size: 2.5rem;
+    color: #d1d5db;
+    transition: all 0.4s cubic-bezier(0.34,1.56,0.64,1);
+}
+.star-rating .star.earned {
+    color: #f59e0b;
+    filter: drop-shadow(0 0 8px rgba(245,158,11,0.6));
+    animation: star-pop 0.5s cubic-bezier(0.34,1.56,0.64,1) both;
+}
+.star-rating .star.earned:nth-child(1) { animation-delay: 0.3s; }
+.star-rating .star.earned:nth-child(2) { animation-delay: 0.6s; }
+.star-rating .star.earned:nth-child(3) { animation-delay: 0.9s; }
+@keyframes star-pop {
+    0%   { transform: scale(0) rotate(-20deg); opacity: 0; }
+    60%  { transform: scale(1.3) rotate(5deg); }
+    100% { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+
+/* ---- Medal / Grade Badge ---- */
+.grade-medal {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+    font-size: 2.5rem;
+    font-weight: 800;
+    animation: medal-drop 0.6s cubic-bezier(0.34,1.56,0.64,1) 0.2s both;
+}
+@keyframes medal-drop {
+    0%   { transform: translateY(-60px) scale(0.5); opacity: 0; }
+    100% { transform: translateY(0) scale(1); opacity: 1; }
+}
+.grade-medal.gold   { background: linear-gradient(135deg,#fbbf24,#f59e0b,#d97706); color:#fff; box-shadow:0 8px 24px rgba(245,158,11,.5); }
+.grade-medal.silver { background: linear-gradient(135deg,#e5e7eb,#9ca3af,#6b7280); color:#fff; box-shadow:0 8px 24px rgba(107,114,128,.4); }
+.grade-medal.bronze { background: linear-gradient(135deg,#d97706,#b45309,#92400e); color:#fff; box-shadow:0 8px 24px rgba(180,83,9,.4); }
+.grade-medal.fail   { background: linear-gradient(135deg,#f87171,#ef4444,#dc2626); color:#fff; box-shadow:0 8px 24px rgba(239,68,68,.4); }
+
+/* ---- Animated Score Counter ---- */
+.score-counter {
+    font-size: 4rem;
+    font-weight: 800;
+    line-height: 1;
+    background: linear-gradient(135deg, #2563eb, #7c3aed);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: score-reveal 0.4s ease-out 1.2s both;
+}
+@keyframes score-reveal {
+    0%   { opacity: 0; transform: scale(0.7); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+/* ---- XP Earned Flash ---- */
+.xp-earned-flash {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: linear-gradient(135deg,#f59e0b,#fbbf24);
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: 800;
+    padding: 8px 20px;
+    border-radius: 50px;
+    box-shadow: 0 4px 16px rgba(245,158,11,.5);
+    animation: xp-bounce 0.7s cubic-bezier(0.34,1.56,0.64,1) 1.6s both;
+}
+@keyframes xp-bounce {
+    0%   { transform: scale(0) translateY(20px); opacity: 0; }
+    100% { transform: scale(1) translateY(0); opacity: 1; }
+}
+
+/* ---- Score Progress Bar ---- */
+.score-progress-track {
+    height: 14px;
+    background: #e2e8f0;
+    border-radius: 99px;
+    overflow: hidden;
+    margin: 1rem 0;
+}
+.score-progress-fill {
+    height: 100%;
+    border-radius: 99px;
+    width: 0%;
+    transition: width 1.5s cubic-bezier(0.16,1,0.3,1);
+}
+.score-progress-fill.gold   { background: linear-gradient(90deg,#fbbf24,#f59e0b); }
+.score-progress-fill.silver { background: linear-gradient(90deg,#6b7280,#9ca3af); }
+.score-progress-fill.bronze { background: linear-gradient(90deg,#b45309,#d97706); }
+.score-progress-fill.fail   { background: linear-gradient(90deg,#dc2626,#ef4444); }
+
+/* ---- Gamified Result Card ---- */
+.result-card { border:none; border-radius:24px; overflow:hidden; box-shadow:0 20px 60px rgba(15,23,42,.12),0 8px 20px rgba(15,23,42,.06); }
+.result-card-header { padding:2rem; text-align:center; position:relative; overflow:hidden; }
+.result-card-header.gold   { background:linear-gradient(135deg,#fffbeb,#fef3c7); }
+.result-card-header.silver { background:linear-gradient(135deg,#f8fafc,#f1f5f9); }
+.result-card-header.bronze { background:linear-gradient(135deg,#fff7ed,#fed7aa); }
+.result-card-header.fail   { background:linear-gradient(135deg,#fff1f2,#fecdd3); }
+
+/* ---- Confetti Canvas ---- */
+#confettiCanvas { position:fixed; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index:9999; }
+
+/* ---- Celebration Overlay ---- */
+.celebration-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(15,23,42,0.7);
+    z-index: 1060;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    backdrop-filter: blur(4px);
+}
+.celebration-overlay.show { opacity:1; visibility:visible; }
+.celebration-card {
+    background: #fff;
+    border-radius: 24px;
+    padding: 2.5rem;
+    text-align: center;
+    max-width: 360px;
+    width: 90%;
+    box-shadow: 0 24px 60px rgba(15,23,42,.25);
+    animation: celebration-pop 0.5s cubic-bezier(0.34,1.56,0.64,1) both;
+}
+@keyframes celebration-pop {
+    0%   { transform:scale(0.5) translateY(40px); opacity:0; }
+    100% { transform:scale(1) translateY(0); opacity:1; }
+}
+.celebration-emoji {
+    font-size: 4rem;
+    display: block;
+    animation: emoji-spin 0.8s ease-out 0.3s both;
+}
+@keyframes emoji-spin {
+    0%   { transform:rotate(-20deg) scale(0); }
+    60%  { transform:rotate(10deg) scale(1.2); }
+    100% { transform:rotate(0deg) scale(1); }
+}
+
+/* ---- Quiz Progress Bar ---- */
+.quiz-progress-header {
+    position: sticky;
+    top: 70px;
+    z-index: 100;
+    background: var(--bg-primary, #f8fafc);
+    padding: 10px 1rem;
+    border-bottom: 1px solid var(--border-color, #e2e8f0);
+    margin-bottom: 1.5rem;
+}
+.quiz-progress-bar-track { height:8px; background:#e2e8f0; border-radius:99px; overflow:hidden; }
+.quiz-progress-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg,#2563eb,#7c3aed);
+    border-radius: 99px;
+    transition: width 0.4s cubic-bezier(0.16,1,0.3,1);
+}
+.quiz-q-counter { font-size:0.85rem; font-weight:600; color:var(--text-secondary,#64748b); }
+.quiz-q-counter span { color:var(--primary,#2563eb); font-weight:800; }
+
+/* ---- Gamified List Items ---- */
+.game-list-item {
+    border-radius: 12px !important;
+    border: 1px solid var(--border-color,#e2e8f0) !important;
+    margin-bottom: 0.75rem;
+    transition: box-shadow 0.2s, border-color 0.2s, transform 0.2s;
+    position: relative;
+    overflow: hidden;
+}
+.game-list-item:hover { box-shadow:0 6px 20px rgba(37,99,235,.1); border-color:rgba(37,99,235,.3) !important; transform:translateY(-2px); }
+.game-list-item.completed { border-color:rgba(16,185,129,.35) !important; background:rgba(16,185,129,.03); }
+.game-list-item.completed::before {
+    content: '';
+    display: block;
+    width: 4px;
+    position: absolute;
+    top: 0; left: 0; bottom: 0;
+    background: linear-gradient(180deg,#10b981,#059669);
+}
+
+/* ---- Subject Progress Ring ---- */
+.subject-progress-ring {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: linear-gradient(135deg,rgba(37,99,235,.06),rgba(124,58,237,.04));
+    border: 1px solid rgba(37,99,235,.15);
+    border-radius: 16px;
+    padding: 1rem 1.5rem;
+    margin-bottom: 1.5rem;
+}
+.ring-wrap { position:relative; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.ring-center-text { position:absolute; font-size:0.85rem; font-weight:800; color:#2563eb; }
+.progress-ring-svg { transform:rotate(-90deg); }
+.progress-ring-circle-bg { stroke:#e2e8f0; fill:none; }
+.progress-ring-circle-fill {
+    fill: none;
+    stroke: #2563eb;
+    stroke-linecap: round;
+    stroke-dasharray: 157;
+    stroke-dashoffset: 157;
+    transition: stroke-dashoffset 1.2s cubic-bezier(0.16,1,0.3,1);
+}
+
+/* ---- MCQ Option Style ---- */
+.mcq-option {
+    cursor: pointer;
+    padding: 10px 14px;
+    border-radius: 10px;
+    border: 2px solid #e2e8f0;
+    margin-bottom: 8px;
+    transition: border-color 0.2s, background 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    user-select: none;
+}
+.mcq-option:has(input:checked) { border-color:#2563eb; background:rgba(37,99,235,.06); }
+.mcq-option:hover { border-color:rgba(37,99,235,.4); background:rgba(37,99,235,.03); }
+.question-card.answered { border-color:rgba(16,185,129,.4) !important; }

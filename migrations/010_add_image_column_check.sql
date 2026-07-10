@@ -1,0 +1,3 @@
+-- This migration file has been replaced by the PHP script apply_image_check_migration.php
+-- which handles the conditional logic properly
+-- The PHP script checks if the image column exists before adding it

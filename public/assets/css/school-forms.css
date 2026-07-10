@@ -1,0 +1,220 @@
+﻿/* ================================================================
+   AetherEdu School Forms CSS — Print + Preview
+   Supports both screen preview and @media print for PDF export
+   ================================================================ */
+
+/* ---- Screen: Form container ---- */
+.sf-page {
+    width: 210mm;
+    min-height: 297mm;
+    margin: 0 auto;
+    background: #fff;
+    padding: 10mm 12mm;
+    box-shadow: 0 0 30px rgba(0,0,0,.12);
+    font-family: 'Arial Narrow', Arial, sans-serif;
+    font-size: 8.5pt;
+    color: #000;
+    position: relative;
+}
+.sf-preview-wrapper {
+    background: #f1f5f9;
+    padding: 2rem 1rem;
+    min-height: 100vh;
+}
+.sf-toolbar {
+    width: 210mm;
+    margin: 0 auto 12px;
+    display: flex;
+    gap: 8px;
+}
+@media (max-width: 900px) {
+    .sf-page { width: 100%; padding: 5mm; }
+    .sf-toolbar { width: 100%; }
+}
+
+/* ---- DepEd Header ---- */
+.sf-deped-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 2.5pt solid #000;
+    padding-bottom: 4px;
+    margin-bottom: 6px;
+}
+.sf-deped-header img.logo { width: 50px; height: 50px; object-fit: contain; }
+.sf-deped-header .center-text { text-align: center; flex: 1; }
+.sf-deped-header .center-text p { margin: 0; line-height: 1.25; }
+.sf-form-title {
+    text-align: center;
+    font-size: 11pt;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: 2px solid #000;
+    padding: 4px 0;
+    margin: 6px 0;
+    background: #f0f0f0;
+}
+.sf-form-subtitle {
+    text-align: center;
+    font-size: 8pt;
+    font-style: italic;
+    margin-bottom: 6px;
+}
+
+/* ---- Section Headings ---- */
+.sf-section-title {
+    background: #1a1a2e;
+    color: #fff;
+    font-size: 8pt;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 2px 6px;
+    margin: 6px 0 4px;
+    letter-spacing: 0.5px;
+}
+
+/* ---- Info Grid ---- */
+.sf-info-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 8pt;
+}
+.sf-info-table td {
+    border: 0.5pt solid #555;
+    padding: 2px 4px;
+    vertical-align: middle;
+}
+.sf-info-table .label { font-weight: bold; white-space: nowrap; background: #f9f9f9; width: 30%; }
+.sf-info-table .value { min-width: 60px; }
+.sf-underline { border-bottom: 1px solid #000 !important; border-top:none !important; border-left:none !important; border-right:none !important; }
+
+/* ---- Grades Table ---- */
+.sf-grades-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 7.5pt;
+    margin: 4px 0;
+}
+.sf-grades-table th {
+    background: #2c3e50;
+    color: #fff;
+    text-align: center;
+    padding: 3px 2px;
+    border: 0.5pt solid #000;
+    font-size: 7pt;
+}
+.sf-grades-table td {
+    border: 0.5pt solid #999;
+    padding: 2px 4px;
+    text-align: center;
+    vertical-align: middle;
+}
+.sf-grades-table td.subject-name { text-align: left; }
+.sf-grades-table tr.passed td { background: #f0fff4; }
+.sf-grades-table tr.failed td { background: #fff0f0; }
+.sf-grades-table tr.total-row td { background: #eef2ff; font-weight: bold; font-size: 8pt; }
+
+/* ---- Attendance Table ---- */
+.sf-attend-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 7pt;
+}
+.sf-attend-table th, .sf-attend-table td {
+    border: 0.5pt solid #000;
+    padding: 2px 3px;
+    text-align: center;
+}
+.sf-attend-table th { background: #2c3e50; color: #fff; }
+
+/* ---- Core Values / Behavior ---- */
+.sf-behavior-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 7.5pt;
+}
+.sf-behavior-table th, .sf-behavior-table td {
+    border: 0.5pt solid #000;
+    padding: 2px 4px;
+    text-align: center;
+}
+.sf-behavior-table th { background: #2c3e50; color: #fff; }
+.sf-behavior-table td.core-label { text-align: left; font-weight: bold; background: #f9f9f9; }
+.sf-rating-legend { font-size: 6.5pt; color: #333; margin: 3px 0; }
+
+/* ---- Signatories ---- */
+.sf-signatories {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    gap: 10px;
+}
+.sf-signatory-box {
+    flex: 1;
+    text-align: center;
+    border: 0.5pt solid #000;
+    padding: 6px 8px;
+}
+.sf-signatory-line {
+    border-bottom: 1pt solid #000;
+    height: 30px;
+    margin: 8px 4px 2px;
+}
+.sf-signatory-label { font-size: 7pt; font-weight: bold; text-transform: uppercase; }
+.sf-signatory-role { font-size: 6.5pt; color: #555; }
+
+/* ---- Remarks box ---- */
+.sf-remarks {
+    border: 1pt solid #000;
+    padding: 4px;
+    min-height: 30px;
+    font-size: 7pt;
+    margin: 4px 0;
+}
+
+/* ---- QR + Verification footer ---- */
+.sf-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: 6px;
+    font-size: 6.5pt;
+    color: #555;
+    border-top: 0.5pt solid #000;
+    padding-top: 4px;
+}
+
+/* ================================================================
+   PRINT STYLES — This is what gets saved as PDF
+   ================================================================ */
+@media print {
+    * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+
+    body, html { margin: 0; padding: 0; background: #fff !important; }
+
+    /* Hide everything that's not the form */
+    .sidebar, .main-content > .top-bar, .sf-toolbar, .sf-preview-wrapper > *:not(.sf-page),
+    nav, header, footer, .btn, button, .alert, .breadcrumb, #timerBox { display: none !important; }
+
+    .main-content { margin-left: 0 !important; padding: 0 !important; }
+    .sf-preview-wrapper { background: none !important; padding: 0 !important; }
+
+    .sf-page {
+        width: 100% !important;
+        min-height: auto !important;
+        margin: 0 !important;
+        padding: 10mm 12mm !important;
+        box-shadow: none !important;
+        page-break-after: always;
+    }
+
+    /* Keep table rows together when possible */
+    tr { page-break-inside: avoid; }
+    thead { display: table-header-group; }
+
+    @page {
+        size: A4 portrait;
+        margin: 8mm 10mm;
+    }
+}

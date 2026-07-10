@@ -1,0 +1,20 @@
+# Public folder .htaccess
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    
+    # Redirect to login if accessing root
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^$ login.php [L]
+</IfModule>
+
+# Security Headers
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set X-XSS-Protection "1; mode=block"
+</IfModule>
+
+# Disable Directory Listing
+Options -Indexes
