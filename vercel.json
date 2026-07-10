@@ -1,9 +1,9 @@
 {
-  "functions": {
-    "public/**/*.php": { "runtime": "vercel-php@0.6.1" },
-    "api/**/*.php": { "runtime": "vercel-php@0.6.1" },
-    "*.php": { "runtime": "vercel-php@0.6.1" }
-  },
+  "builds": [
+    { "src": "public/**/*.php", "use": "vercel-php@0.6.1" },
+    { "src": "api/**/*.php", "use": "vercel-php@0.6.1" },
+    { "src": "*.php", "use": "vercel-php@0.6.1" }
+  ],
   "routes": [
     { "src": "/(.*\\.php)", "dest": "/public/$1" },
     { "src": "/(.*)", "dest": "/public/index.php" }
